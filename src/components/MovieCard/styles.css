@@ -1,0 +1,23 @@
+.movie-card__container{
+  height: 280px;
+  width: 164px;
+  margin: 7px;
+}
+
+.movie-card__image{
+  height: 240px;
+  width: 164px;
+}
+
+.movie-card__category{
+  color: rgb(169, 170, 176);
+  margin-top: 7px;
+  font-size: 13px;
+  margin: 0;
+}
+
+.movie-card__title{
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  margin: 0;
+}

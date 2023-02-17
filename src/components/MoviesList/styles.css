@@ -1,0 +1,79 @@
+.movies-list__container{
+  background-color: #131722;
+  padding-left: 50px;
+  display: flex;
+}
+
+.movies-list-links-cont{
+  background-color: #131722;
+  padding-left: 90px;
+  padding-top: 40px;
+  font-size: 18px;
+  height: 50px;
+}
+
+.movies-list__links{
+  color: rgb(169, 170, 176);
+  text-decoration: none;
+}
+
+.movies-list__links:hover{
+  color: rgb(36, 186, 239);
+}
+
+.movies-list__slash{
+  color: rgb(169, 170, 176);
+}
+
+.movies-list__subcont{
+  flex-direction: row;
+  display: flex;
+  margin: 0;
+}
+
+.movies-list__li{
+  list-style: none;
+}
+
+.movies-list__category-title{
+  color: rgb(255, 255, 255);
+  margin-top: 12px;
+  font-size: 30px;
+}
+
+.movies-list__top{
+  border-top: 2px solid rgb(169, 170, 176);
+  width: 45px;
+}
+
+.movies-list__bottom{
+  border-top: 2px solid rgb(169, 170, 176);
+  width: 200px;
+}
+
+.movies-list__movies__cont{
+  flex-direction: column;
+  display: flex;
+  width: 220px;
+}
+
+.movies-list__btn{
+  border: 2px solid rgb(169, 170, 176);
+  color: rgb(169, 170, 176);
+  background-color: #131722;
+  margin-right: 22px;
+  border-radius: 50%;
+  height: 50px;
+  border: none;
+  width: 50px;
+}
+
+.movies-list__btn ion-icon{
+  font-size: 33px;
+  border: none;
+}
+
+.movies-list__text{
+  color: rgb(169, 170, 176);
+  margin-top: 0;
+}
