@@ -1,0 +1,84 @@
+.head-board__container{
+  background-color: rgb(38, 43, 58);
+  color: rgb(255, 255, 255);
+  grid-template-columns: auto;
+  display: grid;
+}
+
+.head-board__title{
+  font-size: 35px;
+  margin-top: 30px;
+}
+
+.head-board__info{
+  margin-left: 70px;
+  padding: 70px;
+
+}
+
+.head-board__watch-btn{
+  background-color: rgb(36, 186, 239);
+  color: rgb(219, 244, 253);
+  margin-bottom: 15px;
+  margin-right: 25px;
+  border-radius: 3px;
+  margin-top: 20px;
+  font-size: 10px;
+  width: 145px;
+  height: 45px;
+  border: none;
+}
+
+.head-board__play-btn{
+  border: 1px solid rgb(169, 170, 176);
+  background-color: rgb(38, 43, 58);
+  color: rgb(241, 241, 242);
+  border-radius: 3px;
+  font-size: 10px;
+  height: 45px;
+  width: 145px;
+}
+
+.head-board__triangle-cont{
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  display: flex;
+  height: 300px;
+}
+
+.head-board__triangle{
+  border: 2px solid rgb(169, 170, 176);
+  background-color: rgb(38, 43, 58);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50%;
+  height: 130px;
+  display: flex;
+  width: 130px;
+}
+
+.head-board__traingle-btn {
+  background-color: rgb(38, 43, 58);
+  position: absolute;
+  border: none;
+}
+
+.head-board__traingle-btn ion-icon{
+  background-color: rgb(38, 43, 58);
+  color: rgb(37, 130, 166);
+  height: 80px;
+  width: 80px;
+}
+
+@media(min-width: 768px){
+  .head-board__container{
+    grid-template-columns: 50% auto;
+  }
+
+  .head-board__triangle-cont{
+    justify-content: left;
+    margin-left: 60px;
+  }
+}

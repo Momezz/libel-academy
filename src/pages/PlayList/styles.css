@@ -1,0 +1,7 @@
+.play-list__container{
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1550px;
+  display: flex;
+  margin: 0 auto;
+}

@@ -1,0 +1,80 @@
+.year-movies__container{
+  background-color: #131722;
+  padding-left: 60px;
+  display: flex;
+}
+
+.year-movies__links-cont{
+  background-color: #131722;
+  padding-left: 285px;
+  padding-top: 40px;
+  font-size: 18px;
+  height: 50px;
+}
+
+.year-movies__links{
+  color: rgb(169, 170, 176);
+  text-decoration: none;
+}
+
+.year-movies__links:hover{
+  color: rgb(36, 186, 239);
+}
+
+.year-movies__slash{
+  color: rgb(169, 170, 176);
+}
+
+.year-movies__subcont{
+  flex-direction: row;
+  display: flex;
+  margin: 0;
+}
+
+.year-movies__li{
+  list-style: none;
+}
+
+.year-movies__category-title{
+  color: rgb(255, 255, 255);
+  margin-top: 12px;
+  font-size: 30px;
+}
+
+.year-movies__top{
+  border-top: 2px solid rgb(169, 170, 176);
+  width: 45px;
+}
+
+.year-movies__bottom{
+  border-top: 2px solid rgb(169, 170, 176);
+  width: 210px;
+}
+
+.year-movies__movies__cont{
+  flex-direction: column;
+  margin-right: -35px;
+  display: flex;
+  width: 220px;
+}
+
+.year-movies__btn{
+  border: 2px solid rgb(169, 170, 176);
+  color: rgb(169, 170, 176);
+  background-color: #131722;
+  border-radius: 50%;
+  margin-right: 22px;
+  height: 50px;
+  border: none;
+  width: 50px;
+}
+
+.year-movies__btn ion-icon{
+  font-size: 33px;
+  border: none;
+}
+
+.year-movies__text{
+  color: rgb(169, 170, 176);
+  margin-top: 0;
+}
