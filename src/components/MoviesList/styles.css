@@ -58,7 +58,6 @@
 }
 
 .movies-list__btn{
-  border: 2px solid rgb(169, 170, 176);
   color: rgb(169, 170, 176);
   background-color: #131722;
   margin-right: 22px;
@@ -66,6 +65,12 @@
   height: 50px;
   border: none;
   width: 50px;
+  border: 2px solid rgb(169, 170, 176);
+}
+
+.movies-list__btn:hover{
+  border: 2px solid rgb(36, 186, 239);
+  color: rgb(36, 186, 239);
 }
 
 .movies-list__btn ion-icon{
