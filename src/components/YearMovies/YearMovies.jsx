@@ -1,14 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
-import data from '../../assets/data.json';
 import './styles.css';
 
 const YearMovies = () => {
-  const [start, setStart] = useState(0);
-  const [end, setEnd] = useState(6);
+  const [start, setStart] = useState(5);
+  const [end, setEnd] = useState(11);
+  const [searchResults, setSearchResults] = useState([]);
+  const filt = "2018";
+
+  const searchMovies = async () => {
+    try {
+      const response = await fetch(`http://www.omdbapi.com/?s=${filt}&apikey=23bf4ab2`);
+      const data = await response.json();
+      setSearchResults(data.Search);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => { searchMovies() }, []);
 
   const handleNext = () => {
-    if (end < data.length) {
+    if (end < searchResults.length) {
       setStart(start + 1);
       setEnd(end + 1);
     }
@@ -20,7 +33,7 @@ const YearMovies = () => {
       setEnd(end - 1);
     }
   }
-  const elements = data.slice(start, end);
+  const elements = searchResults.slice(start, end);
   return (
     <>
       <div className="year-movies__links-cont">
@@ -31,7 +44,7 @@ const YearMovies = () => {
       <article className="year-movies__container">
         <div className="year-movies__movies__cont">
           <p className="year-movies__top"> </p>
-          <h2 className="year-movies__category-title">Action & Drama Movies</h2>
+          <h2 className="year-movies__category-title">Funniest Comedy Movies 0f 2018</h2>
           <div>
             <button className="year-movies__btn"><ion-icon name="chevron-back-outline" onClick={handleNext} /></button>
             <button className="year-movies__btn"><ion-icon name="chevron-forward-outline" onClick={handleLast} /></button>
@@ -44,10 +57,10 @@ const YearMovies = () => {
             elements.map((movie) => (
               <li className="year-movies__li" key={movie.id}>
                 <MovieCard
-                  title={movie.title}
-                  movieImage={movie.image}
-                  category={movie.category}
-                  year={movie.year}
+                  title={movie.Title}
+                  movieImage={movie.Poster}
+                  category={movie.Type}
+                  year={movie.Year}
                 />
               </li>
             ))
