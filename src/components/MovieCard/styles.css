@@ -1,12 +1,12 @@
 .movie-card__container{
-  height: 280px;
-  width: 164px;
+  max-height: 280px;
+  max-width: 164px;
   margin: 7px;
 }
 
 .movie-card__image{
-  height: 242px;
-  width: 164px;
+  max-height: 240px;
+  max-width: 164px;
 }
 
 .movie-card__category{

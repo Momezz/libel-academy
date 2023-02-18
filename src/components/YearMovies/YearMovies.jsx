@@ -1,27 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
+import data from '../../assets/data.json';
 import './styles.css';
 
 const YearMovies = () => {
   const [start, setStart] = useState(5);
   const [end, setEnd] = useState(11);
-  const [searchResults, setSearchResults] = useState([]);
-  const filt = "2018";
-
-  const searchMovies = async () => {
-    try {
-      const response = await fetch(`http://www.omdbapi.com/?s=${filt}&apikey=23bf4ab2`);
-      const data = await response.json();
-      setSearchResults(data.Search);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => { searchMovies() }, []);
 
   const handleNext = () => {
-    if (end < searchResults.length) {
+    if (end < data.length) {
       setStart(start + 1);
       setEnd(end + 1);
     }
@@ -33,7 +20,7 @@ const YearMovies = () => {
       setEnd(end - 1);
     }
   }
-  const elements = searchResults.slice(start, end);
+  const elements = data.slice(start, end);
   return (
     <>
       <div className="year-movies__links-cont">
@@ -57,10 +44,10 @@ const YearMovies = () => {
             elements.map((movie) => (
               <li className="year-movies__li" key={movie.id}>
                 <MovieCard
-                  title={movie.Title}
-                  movieImage={movie.Poster}
-                  category={movie.Type}
-                  year={movie.Year}
+                  title={movie.title}
+                  movieImage={movie.image}
+                  category={movie.category}
+                  year={movie.year}
                 />
               </li>
             ))

@@ -1,29 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
+import data from '../../assets/data.json';
 import './styles.css';
 
 const MoviesList = () => {
   const [start, setStart] = useState(5);
   const [end, setEnd] = useState(11);
-  const [searchResults, setSearchResults] = useState([]);
-
-  useEffect(() => {
-    searchMovies()
-  }, []);
-
-  const filt = "all";
-  const searchMovies = async () => {
-    try {
-      const response = await fetch(`http://www.omdbapi.com/?s=${filt}&apikey=23bf4ab2&`);
-      const data = await response.json();
-      setSearchResults(data.Search);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handleNext = () => {
-    if (end < searchResults.length) {
+    if (end < data.length) {
       setStart(start + 1);
       setEnd(end + 1);
     }
@@ -35,7 +20,7 @@ const MoviesList = () => {
       setEnd(end - 1);
     }
   }
-  const elements = searchResults.slice(start, end);
+  const elements = data.slice(start, end);
   return (
     <>
       <div className="movies-list-links-cont">
@@ -49,10 +34,10 @@ const MoviesList = () => {
             elements.map((movie) => (
               <li className="movies-list__li" key={movie.imdbID}>
                 <MovieCard
-                  title={movie.Title}
-                  movieImage={movie.Poster}
-                  category={movie.Type}
-                  year={movie.Year}
+                  title={movie.title}
+                  movieImage={movie.image}
+                  category={movie.category}
+                  year={movie.year}
                 />
               </li>
             ))
