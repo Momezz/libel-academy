@@ -1,35 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import data from '../../assets/data.json';
 import './styles.css';
 
 const MoviesList = () => {
-  const [start, setStart] = useState(5);
-  const [end, setEnd] = useState(11);
-
+  const [width, setWidth] = useState(Math.floor(window.innerWidth / 300));
+  const [start, setStart] = useState(0);
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(Math.floor(window.innerWidth / 300));
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [width]);
   const handleNext = () => {
-    if (end < data.length) {
+    if (width < data.length) {
       setStart(start + 1);
-      setEnd(end + 1);
+      setWidth(width + 1);
     }
   }
 
   const handleLast = () => {
     if (start > 0) {
       setStart(start - 1);
-      setEnd(end - 1);
+      setWidth(width - 1);
     }
   }
-  const elements = data.slice(start, end);
+  const elements = data.slice(start, width);
   return (
-    <>
-      <div className="movies-list-links-cont">
+    <section className="movies-list__section">
+      <div className="movies-list__links-cont">
         <a href="/" className="movies-list__links">Today </a>&nbsp;<span className="movies-list__slash"> / </span>&nbsp;
         <a href="/" className="movies-list__links">This week </a>&nbsp;<span className="movies-list__slash"> / </span>&nbsp;
         <a href="/" className="movies-list__links">Last 30 days</a>
       </div>
       <article className="movies-list__container">
-        <ul className="movies-list__subcont">
+        <div className="movies-list__subcont">
           {
             elements.map((movie) => (
               <li className="movies-list__li" key={movie.imdbID}>
@@ -42,7 +48,7 @@ const MoviesList = () => {
               </li>
             ))
           }
-        </ul>
+        </div>
         <div className="movies-list__movies__cont">
           <p className="movies-list__top"> </p>
           <h2 className="movies-list__category-title">Action & Drama Movies</h2>
@@ -54,7 +60,7 @@ const MoviesList = () => {
           <p className="movies-list__text">VIEW ALL &gt;</p>
         </div>
       </article>
-    </>
+    </section>
   );
 }
 

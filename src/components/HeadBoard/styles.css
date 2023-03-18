@@ -2,7 +2,9 @@
   background-color: rgb(38, 43, 58);
   color: rgb(255, 255, 255);
   grid-template-columns: auto;
+  text-align: center;
   display: grid;
+  width: 100%;
 }
 
 .head-board__title{
@@ -12,9 +14,8 @@
 }
 
 .head-board__info{
-  margin-left: 70px;
-  padding: 80px;
-  padding-left: 20px;
+  border: 50px;
+  width: 100%;
 }
 
 .head-board__watch-btn{
@@ -46,6 +47,7 @@
   margin-top: 25px;
   display: flex;
   height: 300px;
+  width: 100%;
 }
 
 .head-board__triangle{

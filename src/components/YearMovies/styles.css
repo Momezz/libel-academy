@@ -1,12 +1,19 @@
+.year-movies__section{
+  width: 100%;
+}
+
 .year-movies__container{
   background-color: #131722;
-  padding-left: 90px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   display: flex;
+  width: 100%;
 }
 
 .year-movies__links-cont{
   background-color: #131722;
-  padding-left: 320px;
+  text-align: center;
   padding-top: 40px;
   font-size: 18px;
   height: 50px;
@@ -82,4 +89,10 @@
 .year-movies__text{
   color: rgb(169, 170, 176);
   margin-top: 0;
+}
+
+@media(min-width: 400px){
+  .year-movies__container{
+    flex-direction: row;
+  }
 }

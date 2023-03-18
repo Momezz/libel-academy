@@ -1,12 +1,19 @@
-.movies-list__container{
-  background-color: #131722;
-  padding-left: 50px;
-  display: flex;
+.movies-list__section{
+  width: 100%;
 }
 
-.movies-list-links-cont{
+.movies-list__container{
   background-color: #131722;
-  padding-left: 90px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.movies-list__links-cont{
+  background-color: #131722;
+  text-align: center;
   padding-top: 40px;
   font-size: 18px;
   height: 50px;
@@ -53,6 +60,7 @@
 
 .movies-list__movies__cont{
   flex-direction: column;
+  margin-left: 30px;
   display: flex;
   width: 220px;
 }
@@ -81,4 +89,10 @@
 .movies-list__text{
   color: rgb(169, 170, 176);
   margin-top: 0;
+}
+
+@media(min-width: 400px){
+  .movies-list__container{
+    flex-direction: row;
+  }
 }

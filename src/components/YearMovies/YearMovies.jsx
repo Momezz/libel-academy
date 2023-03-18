@@ -1,28 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import data from '../../assets/data.json';
 import './styles.css';
 
 const YearMovies = () => {
-  const [start, setStart] = useState(5);
-  const [end, setEnd] = useState(11);
-
+  const [width, setWidth] = useState(Math.floor(window.innerWidth / 300));
+  const [start, setStart] = useState(0);
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(Math.floor(window.innerWidth / 300));
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [width]);
   const handleNext = () => {
-    if (end < data.length) {
+    if (width < data.length) {
       setStart(start + 1);
-      setEnd(end + 1);
+      setWidth(width + 1);
     }
   }
 
   const handleLast = () => {
     if (start > 0) {
       setStart(start - 1);
-      setEnd(end - 1);
+      setWidth(width - 1);
     }
   }
-  const elements = data.slice(start, end);
+  const elements = data.slice(start, width);
   return (
-    <>
+    <section className="year-movies__section">
       <div className="year-movies__links-cont">
         <a href="/" className="year-movies__links">Today </a>&nbsp;<span className="year-movies__slash"> / </span>&nbsp;
         <a href="/" className="year-movies__links">This week </a>&nbsp;<span className="year-movies__slash"> / </span>&nbsp;
@@ -54,7 +60,7 @@ const YearMovies = () => {
           }
         </ul>
       </article>
-    </>
+    </section>
   );
 }
 
